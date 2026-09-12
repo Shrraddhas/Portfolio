@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Shrraddhas Mishra, GenAI Engineer at Capgemini.">
+  <title>Shrraddhas Mishra — GenAI Engineer</title>
+  <style>
+    :root{
+      --bg:#f5f3ee;
+      --paper:#fbfaf7;
+      --ink:#171717;
+      --muted:#6d6a64;
+      --line:#d9d5cc;
+      --accent:#6d5bd0;
+      --accent-soft:#ece9fb;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    nav{
+      position:sticky;top:0;z-index:10;
+      background:rgba(245,243,238,.92);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(217,213,204,.8);
+    }
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:750;letter-spacing:-.03em}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+    .nav-links a:hover{color:var(--ink)}
+    .hero{padding:110px 0 95px;border-bottom:1px solid var(--line)}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:20px;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+    h1{
+      font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.065em;
+      max-width:900px;margin:0 0 28px;font-weight:760;
+    }
+    .hero-copy{max-width:700px;color:#4e4b46;font-size:20px;line-height:1.55}
+    .hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 17px;border:1px solid var(--ink);font-size:14px;font-weight:700;
+      transition:.2s ease;
+    }
+    .button.primary{background:var(--ink);color:#fff}
+    .button:hover{transform:translateY(-2px)}
+    section{padding:88px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:180px 1fr;gap:40px;margin-bottom:42px}
+    .section-label{
+      font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:750;color:var(--muted);
+    }
+    .section-title{font-size:clamp(30px,4vw,48px);letter-spacing:-.045em;line-height:1.05;margin:0}
+    .section-intro{max-width:680px;color:var(--muted);margin-top:16px}
+    .work{display:grid;grid-template-columns:170px 1fr;gap:38px;padding:30px 0;border-top:1px solid var(--line)}
+    .work:first-of-type{border-top:0;padding-top:0}
+    .date{font-size:13px;color:var(--muted)}
+    .work h3{font-size:24px;letter-spacing:-.025em;margin:0 0 4px}
+    .role{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:16px}
+    .work ul{margin:0;padding-left:20px;color:#45423d}
+    .work li{margin:7px 0}
+    .stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:20px}
+    .stat strong{display:block;font-size:25px;letter-spacing:-.04em}
+    .stat span{font-size:12px;color:var(--muted)}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{
+      background:var(--paper);border:1px solid var(--line);padding:30px;min-height:250px;
+      display:flex;flex-direction:column;justify-content:space-between;
+      transition:.2s ease;
+    }
+    .project:hover{transform:translateY(-3px);border-color:#bdb8ad}
+    .project-num{font-size:12px;color:var(--muted);margin-bottom:35px}
+    .project h3{font-size:26px;line-height:1.1;letter-spacing:-.04em;margin:0 0 12px}
+    .project p{margin:0;color:var(--muted);font-size:15px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+    .tag{font-size:11px;padding:5px 8px;border:1px solid var(--line);color:#5d5952}
+    .project.featured{grid-column:span 2;background:var(--accent-soft);border-color:#d6d0f3}
+    .project.featured p{color:#4d4960}
+    .research{margin-top:18px;padding:26px 0;border-top:1px solid var(--line)}
+    .research h3{margin:0 0 8px;font-size:22px}
+    .research p{margin:0;color:var(--muted)}
+    .timeline{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:var(--paper);border:1px solid var(--line);padding:26px}
+    .card h3{margin:0 0 6px;font-size:20px}
+    .card .meta{font-size:13px;color:var(--accent);font-weight:700}
+    .card p{color:var(--muted);font-size:14px}
+    .certs{display:flex;flex-wrap:wrap;gap:10px}
+    .cert{padding:10px 13px;border:1px solid var(--line);background:var(--paper);font-size:13px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end}
+    .contact h2{font-size:clamp(38px,5vw,62px);letter-spacing:-.06em;line-height:1;margin:0}
+    .contact-copy{color:var(--muted);max-width:480px}
+    .contact-links{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+    .contact-links a{font-size:17px;border-bottom:1px solid var(--ink)}
+    footer{padding:28px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:760px){
+      .nav-links{display:none}
+      .hero{padding:80px 0 70px}
+      .section-head,.work,.contact{grid-template-columns:1fr;gap:16px}
+      .projects,.timeline{grid-template-columns:1fr}
+      .project.featured{grid-column:span 1}
+      section{padding:65px 0}
+      h1{font-size:54px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Shrraddhas<span>.</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap">
+        <div class="eyebrow"><span class="dot"></span> GenAI Engineer · Product-minded</div>
+        <h1>I build AI products around real problems.</h1>
+        <p class="hero-copy">
+          I'm Shrraddhas Mishra, a GenAI Engineer at Capgemini working on developer productivity
+          and agentic AI in an enterprise SAP environment. I like starting with the problem,
+          getting close to the people who experience it, and building something useful.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">See my work</a>
+          <a class="button" href="mailto:mishrashrraddhas@gmail.com">Get in touch</a>
+          <a class="button" href="Shrraddhas-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">01 / Experience</div>
+          <div>
+            <h2 class="section-title">From developer pain points to working products.</h2>
+            <p class="section-intro">
+              My current work sits at the intersection of engineering, user needs and GenAI.
+              I own solutions from discovery and design through validation, demos and delivery.
+            </p>
+          </div>
+        </div>
+
+        <article class="work">
+          <div class="date">Sep 2025 — Present</div>
+          <div>
+            <h3>Capgemini</h3>
+            <div class="role">Senior Software Development Engineer · GenAI Engineer</div>
+            <ul>
+              <li>Built and owned 15+ GenAI agents, 3 extensions and 2 plugins for developer productivity across SAP and Capgemini initiatives.</li>
+              <li>Gathered requirements directly from developers and technical stakeholders, defining acceptance criteria, prioritising features and iterating through feedback and experimentation.</li>
+              <li>Designed end-to-end solutions including code review, API debugging, testing, QA and Copilot telemetry workflows.</li>
+              <li>Led a 2-member GenAI team, delivered high-priority requirements within 1 day, and ran 10+ demos/workshops for 50–80+ participants.</li>
+            </ul>
+            <div class="stats">
+              <div class="stat"><strong>15+</strong><span>GenAI agents</span></div>
+              <div class="stat"><strong>3</strong><span>extensions</span></div>
+              <div class="stat"><strong>2</strong><span>plugins</span></div>
+              <div class="stat"><strong>80+</strong><span>people reached in workshops</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="date">Aug 2024 — Oct 2024</div>
+          <div>
+            <h3>Travellio</h3>
+            <div class="role">Startup · Customer Outreach & Content</div>
+            <ul>
+              <li>Worked across customer outreach, cold mailing, content and social media while supporting early-stage growth initiatives.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="date">Jul 2023 — Sep 2023</div>
+          <div>
+            <h3>Digital Web Solutions</h3>
+            <div class="role">PPC Intern</div>
+            <ul>
+              <li>Managed Google Ads accounts and used analytics tools to understand campaign performance and optimise client campaigns.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">02 / Selected work</div>
+          <div>
+            <h2 class="section-title">A few things I've built.</h2>
+            <p class="section-intro">A mix of enterprise GenAI work and projects where the problem mattered as much as the implementation.</p>
+          </div>
+        </div>
+
+        <div class="projects">
+          <article class="project featured">
+            <div>
+              <div class="project-num">01 · Enterprise GenAI</div>
+              <h3>Developer productivity agents</h3>
+              <p>
+                Built agentic workflows for code review, API debugging, testing, QA and productivity.
+                The work starts with developer pain points and moves through requirements, design,
+                experimentation, feedback and delivery.
+              </p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Agentic AI</span><span class="tag">MCP</span><span class="tag">GitHub Copilot</span><span class="tag">Product discovery</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <div class="project-num">02 · Personal project</div>
+              <h3>Intelligent Document Processing</h3>
+              <p>
+                An AI-powered document workflow for OCR, extraction and summarisation, with
+                privacy designed into the product through AES-256 encryption and automatic file deletion.
+              </p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">OCR</span><span class="tag">AI extraction</span><span class="tag">Security</span><span class="tag">.NET</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <div class="project-num">03 · Published research</div>
+              <h3>Carbohydrate prediction in millets</h3>
+              <p>
+                A non-destructive approach using hyperspectral imaging and regression models
+                to predict carbohydrate content in millet samples.
+              </p>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Machine Learning</span><span class="tag">HSI</span><span class="tag">PLSR</span><span class="tag">XGBoost</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">03 / Research</div>
+          <div>
+            <h2 class="section-title">Research that became a published paper.</h2>
+            <div class="research">
+              <h3>A Non-Destructive Method for Carbohydrate Prediction in Millets Using Hyperspectral Imaging and Regression Models</h3>
+              <p>
+                Published by IEEE and presented at the 2025 IEEE International Conference on Contemporary Computing and Communications (InC4).
+                The work evaluated hyperspectral data and regression approaches for faster, scalable nutritional analysis.
+              </p>
+              <div class="tag-row">
+                <span class="tag">IEEE</span><span class="tag">InC4 2025</span><span class="tag">Machine Learning</span><span class="tag">Agriculture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">04 / Beyond work</div>
+          <div>
+            <h2 class="section-title">I don't only build software.</h2>
+            <p class="section-intro">
+              I have also worked in event photography, content and community initiatives.
+              Those experiences taught me a different version of the same thing: understand the
+              people involved, coordinate the work, and deliver something people actually use.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="card">
+            <h3>Kalinga Jyoti Chennai</h3>
+            <div class="meta">Lead Photographer · Jun 2023 — Jan 2024</div>
+            <p>Led a small photography team, coordinated shoots and editing workflows, and co-hosted an annual university event with 800+ participants.</p>
+          </div>
+          <div class="card">
+            <h3>NSS VIT Chennai</h3>
+            <div class="meta">Event Photographer & Content Writer · Aug 2022 — Jan 2024</div>
+            <p>Created event communications and participated in community education, outreach and blood-donation initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">05 / Credentials</div>
+          <div>
+            <h2 class="section-title">A technical foundation with a product bent.</h2>
+            <p class="section-intro">Selected certifications and areas I work across.</p>
+            <div class="certs" style="margin-top:24px">
+              <span class="cert">AI-900 · Azure AI Fundamentals</span>
+              <span class="cert">AZ-900 · Azure Fundamentals</span>
+              <span class="cert">Microsoft Power Platform Developer</span>
+              <span class="cert">Consumer Behavior · IIT Kharagpur</span>
+              <span class="cert">E-Business · IIT Kharagpur</span>
+              <span class="cert">AWS Cloud Practitioner</span>
+            </div>
+            <div class="tag-row" style="margin-top:22px">
+              <span class="tag">Product discovery</span><span class="tag">Requirement gathering</span><span class="tag">Experimentation</span>
+              <span class="tag">Agentic AI</span><span class="tag">C# / .NET</span><span class="tag">Angular</span><span class="tag">Azure</span><span class="tag">SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div>
+          <div class="section-label" style="margin-bottom:18px">06 / Contact</div>
+          <h2>Let's build something useful.</h2>
+        </div>
+        <div>
+          <p class="contact-copy">
+            I'm interested in product, AI and developer tools where good engineering can make
+            a measurable difference.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:mishrashrraddhas@gmail.com">mishrashrraddhas@gmail.com</a>
+            <a href="https://in.linkedin.com/in/mishra-shrraddhas" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://shrraddhas.wordpress.com" target="_blank" rel="noopener">Previous portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 Shrraddhas Mishra</span>
+    <span>Built simply. No template circus.</span>
+  </footer>
+</body>
+</html>
